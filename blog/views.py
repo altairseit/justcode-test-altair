@@ -1,4 +1,11 @@
 from django.shortcuts import render
-def post_list(request):
-    return render(request, 'blog/post_list.html', {})
-# Create your views here.
+from .models import AboutUs
+
+def about_view(request):
+    about_us = AboutUs.objects.first()
+
+    context = {
+        'about_us': about_us,
+    }
+
+    return render(request, 'about.html', context)

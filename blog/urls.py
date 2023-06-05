@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import about_view
+from .views import index, post_single
 
 urlpatterns = [
-    path('about/', about_view, name='about'),
+    path('',index,name='index'),
+        path('<int:pk>/',post_single,name='single'),
 ]

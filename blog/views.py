@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from .models import AboutUs
+from .models import Post
+from django.shortcuts import get_object_or_404
 
-def about_view(request):
-    about_us = AboutUs.objects.first()
+def index(request):
+    ls=Post.objects.all()
+    return render(request,'index.html',{'posts':ls})
 
-    context = {
-        'about_us': about_us,
-    }
-
-    return render(request, 'about.html', context)
+def post_single(request,pk):
+    # Post.objects.get(pk=pk)
+    p=get_object_or_404(Post.objects.all(),pk=pk)
+    return render(request,'post_single.html',{'post':p})

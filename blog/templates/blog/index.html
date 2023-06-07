@@ -1,0 +1,10 @@
+{% for i in posts %}
+        <div class="post">
+            <br>
+            <h1>Заголовок: <a href="{% url 'single' pk=i.pk %}">{{i.title}}</a></h1>
+            <h2>Автор: {{i.user}}</h2>
+            <h3>Дата создания поста: {{i.date_post}}</h3>
+            <p>{{i.text}}</p>
+        </div>
+
+    {% endfor %}

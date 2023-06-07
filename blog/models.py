@@ -1,9 +1,16 @@
 from django.db import models
+from django.conf import settings
+from django.utils import timezone
 
-class AboutUs(models.Model):
-    whatsapp_link = models.URLField()
-    telegram_link = models.URLField()
-    text = models.TextField()
+class Post(models.Model):
+    user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,verbose_name='Пользователь создавший пост', null=True,blank=True, related_name='posts')
+    title=models.CharField(verbose_name='Заголовок',max_length=255,default='',null=True,blank=True)
+    text=models.TextField(verbose_name='Описание')
+    date_post=models.DateTimeField(default=timezone.now,verbose_name='Дата создания поста')
 
-    def __str__(self):
-        return "About Us"
+    class Meta:
+        verbose_name='Пост'
+        verbose_name_plural='Посты'
+
+    def str(self) -> str:
+        return self.title

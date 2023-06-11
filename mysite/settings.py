@@ -169,3 +169,5 @@ SWAGGER_SETTINGS = {
       }
    }
 }
+
+AUTH_USER_MODEL='blog.User'

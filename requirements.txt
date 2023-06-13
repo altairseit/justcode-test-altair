@@ -7,3 +7,4 @@ django-jazzmin
 drf-spectacular
 drf-spectacular-sidecar
 django-rest-swagger
+django-cors-headers

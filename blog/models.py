@@ -8,6 +8,7 @@ from django.contrib.auth.models import (
 from django.utils import timezone
 from django.contrib.auth.hashers import make_password
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     SUPERADMIN, SELLER, COURIER, ASSEMBLER, BASIC=range(1,6)
 

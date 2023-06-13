@@ -4,7 +4,7 @@ from rest_framework_simplejwt.serializers import (
 from rest_framework_simplejwt.exceptions import AuthenticationFailed
 from django.core.exceptions import ObjectDoesNotExist
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
-from .models import User, Post, ProductCard
+from .models import User
 from rest_framework import serializers
 
 class TokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -52,3 +52,5 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=['username','password',]
+
+
